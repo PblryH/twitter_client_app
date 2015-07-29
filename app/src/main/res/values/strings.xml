@@ -5,6 +5,9 @@
     <string name="auth_failure">Ошибка при авторизации</string>
     <string name="tweets_list_empty">Здесь должны быть ваши твиты</string>
     <string name="tweets_receive_error">Ошибка при получении твитов</string>
+    <string name="new_tweet_to_short">Твит слишком короткий</string>
+    <string name="new_tweet_to_long">Твит слишком длинный</string>
     <string name="new_tweet_success">Твит отправлен</string>
     <string name="new_tweet_failure">Ошибка при отправке твита</string>
+    <string name="tweet_send_edit_text_hint">Твит</string>
 </resources>

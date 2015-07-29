@@ -43,4 +43,6 @@ dependencies {
     compile 'com.jakewharton.timber:timber:3.1.0'
     // Lombok
     provided "org.projectlombok:lombok:1.16.4"
+
+    compile 'com.rengwuxian.materialedittext:library:2.1.3'
 }

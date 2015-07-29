@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/login_activity_padding"
+    android:padding="@dimen/normal_padding"
     tools:context="app.test.client.twitter.rgun.myapplication.LoginActivity"
     android:gravity="center_vertical|center_horizontal">
 

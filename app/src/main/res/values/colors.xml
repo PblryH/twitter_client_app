@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="edit_text_hint_color">#B3B3B3</color>
+    <color name="edit_text_base_color">#000</color>
+    <color name="edit_text_error_color">#f00</color>
+    <color name="edit_text_primary_color">#4498BF</color>
+</resources>

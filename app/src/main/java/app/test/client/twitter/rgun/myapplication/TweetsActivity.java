@@ -3,8 +3,8 @@ package app.test.client.twitter.rgun.myapplication;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.twitter.sdk.android.Twitter;
@@ -32,11 +32,18 @@ public class TweetsActivity extends ListActivity {
         setListAdapter(tweetViewAdapter);
         loadTweets();
         editText = (EditText) findViewById(R.id.editText);
-        Button button = (Button) findViewById(R.id.tweet);
+        FrameLayout button = (FrameLayout) findViewById(R.id.tweet);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendTweet(editText.getText().toString());
+                String msg = editText.getText().toString();
+                if(msg.length() == 0){
+                    editText.setError(getString(R.string.new_tweet_to_short));
+                } else if(msg.length() > 140){
+                    editText.setError(getString(R.string.new_tweet_to_long));
+                } else {
+                    sendTweet(msg);
+                }
             }
         });
     }

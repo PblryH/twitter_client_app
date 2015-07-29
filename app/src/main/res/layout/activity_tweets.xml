@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -7,19 +8,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:paddingLeft="@dimen/normal_padding"
+        android:paddingRight="@dimen/normal_padding"
+        android:paddingTop="@dimen/normal_padding"
         >
-        <EditText
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/editText"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/send_tweet_edit_text_minHeight"
             android:maxHeight="@dimen/send_tweet_edit_text_maxHeight"
-            android:id="@+id/editText" />
-        <Button
+            android:hint="@string/tweet_send_edit_text_hint"
+            android:textColorHint="@color/edit_text_hint_color"
+            android:textSize="16sp"
+            app:met_baseColor="@color/edit_text_base_color"
+            app:met_errorColor="@color/edit_text_error_color"
+            app:met_floatingLabel="highlight"
+            app:met_maxCharacters="140"
+            app:met_primaryColor="@color/edit_text_primary_color" />
+
+
+        <FrameLayout
             android:id="@+id/tweet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="tweet"/>
+            android:layout_width="@dimen/send_tweet_button_size"
+            android:layout_height="@dimen/send_tweet_button_size"
+            android:layout_marginLeft="@dimen/normal_padding"
+            android:layout_gravity="center"
+            android:background="@drawable/button_selector"
+            android:clickable="true"
+            android:foregroundGravity="center">
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="12dp"
+                android:src="@drawable/button_send" />
+        </FrameLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -28,6 +55,7 @@
         android:layout_weight="1"
         android:orientation="vertical"
         >
+
         <TextView android:id="@id/android:empty"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
