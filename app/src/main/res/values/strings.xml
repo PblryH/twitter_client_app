@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="title_activity_main">MainActivity</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Test Twitter Client</string>
+    <string name="title_activity_main">LoginActivity</string>
+    <string name="title_activity_tweets">TweetsActivity</string>
+    <string name="auth_failure">Ошибка при авторизации</string>
+    <string name="tweets_list_empty">У вас нет твиттов</string>
+    <string name="tweets_receive_error">Ошибка при получении твиттов</string>
 </resources>
