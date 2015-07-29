@@ -35,7 +35,6 @@ public class LoginActivity extends Activity {
         loginButton.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
-                TwitterSessionStorage.getInstance().setResult(result);
                 Intent intent = new Intent(LoginActivity.this, TweetsActivity.class);
                 startActivity(intent);
             }

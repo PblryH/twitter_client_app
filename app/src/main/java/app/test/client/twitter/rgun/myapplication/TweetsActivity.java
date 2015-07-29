@@ -2,6 +2,9 @@ package app.test.client.twitter.rgun.myapplication;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.twitter.sdk.android.Twitter;
@@ -18,6 +21,7 @@ import java.util.List;
 public class TweetsActivity extends ListActivity {
 
     private TweetViewAdapter tweetViewAdapter;
+    private EditText editText;
 
 
     @Override
@@ -27,6 +31,14 @@ public class TweetsActivity extends ListActivity {
         tweetViewAdapter = new TweetViewAdapter(this);
         setListAdapter(tweetViewAdapter);
         loadTweets();
+        editText = (EditText) findViewById(R.id.editText);
+        Button button = (Button) findViewById(R.id.tweet);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendTweet(editText.getText().toString());
+            }
+        });
     }
 
     public void loadTweets() {
@@ -43,5 +55,22 @@ public class TweetsActivity extends ListActivity {
                     }
                 }
         );
+    }
+
+    private void sendTweet(String text) {
+        StatusesService statusesService = Twitter.getInstance().getApiClient().getStatusesService();
+        statusesService.update(text, null, null, null, null, null, null, null, new Callback<Tweet>() {
+            @Override
+            public void success(Result<Tweet> tweetResult) {
+                Toast.makeText(TweetsActivity.this, getString(R.string.new_tweet_success), Toast.LENGTH_LONG).show();
+                editText.getText().clear();
+                loadTweets();
+            }
+
+            @Override
+            public void failure(TwitterException e) {
+                Toast.makeText(TweetsActivity.this, getString(R.string.new_tweet_failure), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
